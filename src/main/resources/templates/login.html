@@ -2,10 +2,10 @@
 <html>
 <head>
     <title>Let's Lift - Login</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/loginStyle.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
     <link href="https://fonts.googleapis.com/css?family=Fahkwang" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -19,18 +19,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#" class="navbar-brand">Let's Lift</a>
+            <a href="/home" class="navbar-brand">Let's Lift</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-nav-demo">
             <ul class="nav navbar-nav">
-                <li ><a href="http://www.google.com">Workouts</a>
-                <li><a href="http://www.google.com">Exercises</a>
+                <li ><a href="/workout">Workouts</a>
+                <li><a href="/exercise">Exercises</a>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://www.google.com">About</a>
-                <li><a href="http://www.google.com">Sign in</a>
+                <li><a href="/about">About</a>
+                <li><a href="/login">Sign in</a>
             </ul>
         </div>
     </div>
@@ -44,13 +44,12 @@
                 <hr>
                 <form>
                     <label for="username">Account:</label>
-                    <input id="username" type="account" placeholder="Account"
+                    <input id="username" class="formInput" type="account" placeholder="Account"
                            required>
 
                     <label for="password">Password:</label>
-                    <input id="password" type="password" placeholder="password"
+                    <input id="password" class="formInput" type="password" placeholder="password"
                            required>
-
                     <input type="submit" class="input-box">
                 </form>
             </div>

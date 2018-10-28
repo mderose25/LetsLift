@@ -83,7 +83,7 @@ public class Main implements CommandLineRunner {
     private Exercise createExercise(Workout workout) {
         Exercise exercise = new Exercise();
         exercise.setExerciseName("Bench press");
-        exercise.setDescription("barbell bench");
+        exercise.setWeight(new Long(13));
         exercise.setReps(new Long(30));
         exercise.setWorkout(workout);
         workoutService.saveExercise(exercise);

@@ -16,9 +16,9 @@ public interface IExercise {
 
     void setExerciseName(String exerciseName);
 
-    String getDescription();
+    Long getWeight();
 
-    void setDescription(String description);
+    void setWeight(Long weight);
 
     Long getReps();
 

@@ -12,10 +12,10 @@ public class Exercise implements Serializable, IExercise {
     public Exercise(){
     }
 
-    public Exercise(Long accountId, String exerciseName, String description){
+    public Exercise(Long accountId, String exerciseName, Long weight){
         this.accountId = accountId;
         this.exerciseName = exerciseName;
-        this.description = description;
+        this.weight = weight;
     }
 
     private Long accountId;
@@ -27,7 +27,7 @@ public class Exercise implements Serializable, IExercise {
     @NotNull
     private String exerciseName;
 
-    private String description;
+    private Long weight;
 
     private Long reps;
 
@@ -75,14 +75,12 @@ public class Exercise implements Serializable, IExercise {
         this.workout = workout;
     }
 
-    @Override
-    public String getDescription() {
-        return description;
+    public Long getWeight() {
+        return weight;
     }
 
-    @Override
-    public void setDescription(String description) {
-        this.description = description;
+    public void setWeight(Long weight) {
+        this.weight = weight;
     }
 
     @Override
