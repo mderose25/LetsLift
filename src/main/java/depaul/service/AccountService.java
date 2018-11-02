@@ -1,7 +1,7 @@
 package depaul.service;
 
-import com.mongodb.client.MongoCursor;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Projections;
 import depaul.interfaces.oracle.IAccount;
 import com.mongodb.*;
@@ -10,11 +10,9 @@ import depaul.interfaces.nosql.IAccountService;
 import depaul.repository.AccountRepository;
 import depaul.tables.Account;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Map;
-
 
 @Service
 public class AccountService implements IAccountService {
@@ -52,25 +50,34 @@ public class AccountService implements IAccountService {
     }
 
     @Override
-    public void createAccount(IAccount account){
-
+    public void createAccount(Account account){
         db.insertOne(new Document().
                 append(dbAccountName, account.getAccountName()).
                 append(dbPassword, account.getPassword()).
                 append(dbFirstName, account.getFirstName()).
                 append(dbLastName, account.getLastName()));
-          }
+    }
 
     @Override
     public boolean loginAccount(String accountName, String enteredPassword) {
-            if(!(accountName.equals("kyu") && (enteredPassword.equals("depaul"))
-            || (accountName.equals("mderose") && (enteredPassword.equals("hockey"))))){
-                return false;
-            }
-            else {
-                return true;
+
+        //Get account name from Mongo DB and regex for password:
+        Bson query = Filters.eq("accountName", accountName);
+        Bson projection = Projections.include("password");
+        FindIterable<Document> iterator = db.find(query).projection(projection);
+        Document result = iterator.first();
+        String toSplit = result.toString();
+        String split[] = toSplit.split("=");
+        String mongoPassword[] = split[2].split("}}");
+
+        if(mongoPassword[0].equals(enteredPassword)){
+            return true;
+        }
+        else {
+            return false;
         }
     }
+
 
 }
 

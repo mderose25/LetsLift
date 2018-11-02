@@ -20,10 +20,10 @@ public class AccountController {
         return "createAccount";
     }
 
-   @PostMapping("/createAccount")
-    public String createAccount(@ModelAttribute IAccount account) {
+   @PostMapping("/login")
+    public String createAccount(@ModelAttribute Account account) {
         accountService.createAccount(account);
-        return "workout";
+        return "login";
     }
 
 }

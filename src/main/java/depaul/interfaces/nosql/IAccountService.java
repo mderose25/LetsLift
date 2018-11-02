@@ -11,5 +11,5 @@ public interface IAccountService {
 
     void deleteAccount(String accountName);
 
-    void createAccount(IAccount account);
+    void createAccount(Account account);
 }

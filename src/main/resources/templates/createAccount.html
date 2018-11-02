@@ -40,7 +40,7 @@
     <div class="row">
         <h1>CREATE ACCOUNT</h1>
         <div class="formText">
-            <form action="#" th:action="@{/createAccount}" th:object="${account}" method="post">
+            <form action="#" th:action="@{/login}" th:object="${account}" method="post">
                 E-Mail address:<br>
                 <input type="text" class="formInput" name="account-name" size="50"
                         th:field="*{accountName}" required><br>

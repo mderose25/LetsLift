@@ -1,6 +1,5 @@
 package depaul.controller;
 
-import depaul.interfaces.oracle.IAccount;
 import depaul.service.AccountService;
 import depaul.tables.Account;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,7 @@ public class LoginController {
         return "login";
     }
 
-    @PostMapping("/login")
+    @PostMapping("/accountHome")
     public String verifyLogin(@ModelAttribute Account account){
         String enteredAccountName = account.getAccountName();
         String enteredPassword = account.getPassword();
@@ -33,7 +32,6 @@ public class LoginController {
         if(accountService.loginAccount(enteredAccountName, enteredPassword)){
             return "accountHome";
         };
-
         return "login";
     }
 }

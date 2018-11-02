@@ -27,34 +27,6 @@ public class Main implements CommandLineRunner {
     }
 
     public void run(String... args) throws Exception {
-        //Mongo - account setup:
-        System.out.println("Accessing Mongo DB at MLab...");
-        System.out.println("Creating and saving account...");
-        createAccount();
-        System.out.println("Account creation complete!");
-        System.out.println("Deleting account...");
-
-
-        //Oracle - workout and exercise setup
-        System.out.println("Creating a workout on DePaul's Oracle server...");
-        Workout newWorkout = createWorkout();
-        System.out.println("Workout created");
-        System.out.println("Creating an exercise");
-
-        //must pass our workout into new exercise so that we know which
-        //routine the exercise will be a part of.
-        Exercise newExercise = createExercise(newWorkout);
-        System.out.println("Exercise has been created.");
-        System.out.println("Deleting exercise...");
-        deleteExercise(newExercise);
-        System.out.println("Exercise deleted...");
-        System.out.println("Deleting workout...");
-        deleteWorkout(newWorkout);
-        System.out.println("Workout deleted.");
-
-        deleteAccount();
-        System.out.println("Deletion successful from MongoDB!");
-
     }
 
     private void createAccount(){
@@ -64,7 +36,6 @@ public class Main implements CommandLineRunner {
         account.setFirstName("Mark");
         account.setLastName("DeRose");
         accountService.createAccount(account);
-        System.out.println(accountService.findAccount("depaulTest"));
     }
 
     private void deleteAccount() {
