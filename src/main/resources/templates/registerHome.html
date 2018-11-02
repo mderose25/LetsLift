@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Let's Lift - Create Exercise</title>
+    <title>Let's Lift - Account Home</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
     <link href="https://fonts.googleapis.com/css?family=Fahkwang" rel="stylesheet">
@@ -38,33 +38,7 @@
 
 <div class="container">
     <div class="row">
-        <h1>CREATE EXERCISE</h1>
-        <div class="formText">
-            <form action="#" th:action="@{/exercise/createExercise}" th:object="${exercise}" method="post">
-                Exercise name:<br>
-                <input type="text" class="formInput" name="exercise-name" size="50"
-                       th:field="*{exerciseName}"><br>
-                <div class="divider"></div>
-                Weight:<br>
-                <input type="text" class="formInput" name="reps" size="50"
-                       th:field="*{weight}"><br>
-                <div class="divider"></div>
-                Reps:<br>
-                <input type="text" class="formInput" name="reps" size="50"
-                       th:field="*{reps}"><br>
-                <div class="divider"></div>
-                Workout:<br>
-                <select name="exeriseList" class="exerciseForm">
-                    <option value="workout1">Workout 1</option>
-                    <option value="workout2">Workout 2</option>
-                    <option value="workout3">Workout 3</option>
-                    <option value="workout4">Workout 4</option>
-                    <option value="workout5">Workout 5</option>
-                </select>
-                <br><br>
-                <input type="submit" class="input-box">
-            </form>
-        </div>
+        <h1>WELCOME ${account.firstName}</h1>
         <div class="col-lg-12">
             <div id="content">
             </div>
@@ -76,4 +50,9 @@
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
+</html></title>
+</head>
+<body>
+
+</body>
 </html>

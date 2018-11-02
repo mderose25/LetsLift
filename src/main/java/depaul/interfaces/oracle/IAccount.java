@@ -2,10 +2,6 @@ package depaul.interfaces.oracle;
 
 public interface IAccount {
 
-    Long getAccountID();
-
-    void setAccountID(Long accountID);
-
     String getAccountName();
 
     void setAccountName(String accountName);
@@ -13,6 +9,14 @@ public interface IAccount {
     String getPassword();
 
     void setPassword(String password);
+
+    String getFirstName();
+
+    void setFirstName(String firstName);
+
+    String getLastName();
+
+    void setLastName(String firstName);
 
     boolean equals(Object object);
 

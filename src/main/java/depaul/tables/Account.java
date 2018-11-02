@@ -1,36 +1,39 @@
 package depaul.tables;
 
+import depaul.controller.RegistrationController;
 import depaul.interfaces.oracle.IAccount;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
 
 public class Account implements IAccount {
 
-    private long accountID;
-
+    @NotNull
+    @NotEmpty
     private String accountName;
 
+    @NotNull
+    @NotEmpty
     private String password;
 
+    @NotNull
+    @NotEmpty
+    private String firstName;
+
+    @NotNull
+    @NotEmpty
+    private String lastName;
+
     @OneToMany(cascade = CascadeType.ALL,
-            mappedBy = "id",
+            mappedBy = "accountName",
             fetch = FetchType.EAGER)
     private Collection<Workout> workouts;
 
     @OneToMany(cascade = CascadeType.ALL,
-            mappedBy = "id",
+            mappedBy = "accountName",
             fetch = FetchType.EAGER)
     private Collection<Exercise> exercises;
-
-    @Override
-    public Long getAccountID() {
-        return accountID;
-    }
-
-    @Override
-    public void setAccountID(Long accountID) {
-        this.accountID = accountID;
-    }
 
     @Override
     public String getAccountName() {
@@ -53,8 +56,29 @@ public class Account implements IAccount {
     }
 
     @Override
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    @Override
+    public String getFirstName(){
+        return firstName;
+    }
+
+    @Override
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    @Override
+    public String getLastName() {
+        return lastName;
+    }
+
+    @Override
     public String toString() {
-        return "Account{" + "Account ID = " + accountID + ", Account = " + accountName + '}';
+        return "Account{" + ", Account = " + accountName + ", First Name = " + firstName + ", Last Name = " +
+                lastName + '}';
     }
 
     public Collection<Workout> getWorkouts() {

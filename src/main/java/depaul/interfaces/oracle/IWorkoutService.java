@@ -4,6 +4,11 @@ import depaul.tables.Exercise;
 import depaul.tables.Workout;
 
 public interface IWorkoutService {
+
+    Long getAccountID();
+
+    void setAccountID(Long accountID);
+
     void deleteWorkout(Workout workout);
 
     void saveWorkout(Workout workout);

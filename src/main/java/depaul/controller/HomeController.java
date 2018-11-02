@@ -23,11 +23,6 @@ public class HomeController {
         return "home";
     }
 
-    @RequestMapping(value = "/login")
-    public String goToLogin(){
-        return "login";
-    }
-
     @RequestMapping(value = "/workout")
     public String goToWorkouts(){
         return "workout";
@@ -42,4 +37,5 @@ public class HomeController {
     public String goToAbout(){
         return "about";
     }
+
 }

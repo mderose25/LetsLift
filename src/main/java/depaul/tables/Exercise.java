@@ -12,10 +12,11 @@ public class Exercise implements Serializable, IExercise {
     public Exercise(){
     }
 
-    public Exercise(Long accountId, String exerciseName, Long weight){
+    public Exercise(Long accountId, String exerciseName, Long weight, Long reps){
         this.accountId = accountId;
         this.exerciseName = exerciseName;
         this.weight = weight;
+        this.reps = reps;
     }
 
     private Long accountId;

@@ -42,13 +42,15 @@
             <div id="content">
                 <h1>LOGIN</h1>
                 <hr>
-                <form>
-                    <label for="username">Account:</label>
-                    <input id="username" class="formInput" type="account" placeholder="Account"
+                <form action="#" th:action="@{/login}" th:object="${account}" method="post">
+                    <label for="accountName">Account:</label>
+                    <input id="accountName" class="formInput" name="accountName" type="account"
+                           th:field="*{accountName}" placeholder="Account"
                            required>
 
                     <label for="password">Password:</label>
-                    <input id="password" class="formInput" type="password" placeholder="password"
+                    <input id="password" class="formInput" name="password" type="password"
+                           th:field="*{password}" placeholder="password"
                            required>
                     <input type="submit" class="input-box">
                 </form>

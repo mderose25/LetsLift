@@ -77,6 +77,14 @@ label {
 	width:90px;
 }
 
+.accountButton {
+	background-color: white;
+	color: black;
+	border: black;
+	height:40px;
+	width:90px;
+}
+
 .navButton {
 	font-size: large;
 	background-color: white;

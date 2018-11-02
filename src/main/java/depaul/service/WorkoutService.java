@@ -16,8 +16,21 @@ public class WorkoutService implements IWorkoutService {
     @Autowired
     ExerciseRepository exerciseRepository;
 
+    Long accountID;
+
+    @Override
+    public Long getAccountID(){
+        return this.accountID;
+    }
+
+    @Override
+    public void setAccountID(Long accountID){
+        this.accountID = accountID;
+    }
+
     @Override
     public void saveWorkout(Workout workout) {
+        workout.setAccountId(this.accountID);
         workoutRepository.save(workout);
     }
 

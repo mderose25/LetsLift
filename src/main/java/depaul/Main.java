@@ -59,14 +59,16 @@ public class Main implements CommandLineRunner {
 
     private void createAccount(){
         Account account = new Account();
-        account.setAccountID(new Long(100));
         account.setAccountName("depaulTest");
         account.setPassword("test");
-        accountService.saveAccount(account);
+        account.setFirstName("Mark");
+        account.setLastName("DeRose");
+        accountService.createAccount(account);
+        System.out.println(accountService.findAccount("depaulTest"));
     }
 
     private void deleteAccount() {
-        accountService.deleteAccount(100);
+        accountService.deleteAccount("depaulTest");
         System.out.println("Deletion complete.");
     }
 
