@@ -5,9 +5,9 @@ import depaul.tables.Workout;
 
 public interface IWorkoutService {
 
-    Long getAccountID();
+    String getAccountName();
 
-    void setAccountID(Long accountID);
+    void setAccountName(String accountName);
 
     void deleteWorkout(Workout workout);
 

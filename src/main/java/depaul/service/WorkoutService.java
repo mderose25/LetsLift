@@ -16,21 +16,19 @@ public class WorkoutService implements IWorkoutService {
     @Autowired
     ExerciseRepository exerciseRepository;
 
-    Long accountID;
+    String accountName;
 
-    @Override
-    public Long getAccountID(){
-        return this.accountID;
+    public String getAccountName() {
+        return accountName;
     }
 
-    @Override
-    public void setAccountID(Long accountID){
-        this.accountID = accountID;
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
     }
 
     @Override
     public void saveWorkout(Workout workout) {
-        workout.setAccountId(this.accountID);
+        workout.setAccountName(this.accountName);
         workoutRepository.save(workout);
     }
 

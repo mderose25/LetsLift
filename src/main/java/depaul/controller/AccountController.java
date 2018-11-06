@@ -25,5 +25,4 @@ public class AccountController {
         accountService.createAccount(account);
         return "login";
     }
-
 }

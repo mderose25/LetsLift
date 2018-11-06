@@ -12,4 +12,6 @@ public interface IAccountService {
     void deleteAccount(String accountName);
 
     void createAccount(Account account);
+
+    Account returnAccountInfo(String accountName);
 }

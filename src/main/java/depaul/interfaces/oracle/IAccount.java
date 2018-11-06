@@ -1,5 +1,7 @@
 package depaul.interfaces.oracle;
 
+import depaul.tables.Account;
+
 public interface IAccount {
 
     String getAccountName();

@@ -9,6 +9,16 @@ import java.util.Collection;
 
 public class Account implements IAccount {
 
+    public Account(String acctName, String pword, String first, String last){
+        this.accountName = acctName;
+        this.password = pword;
+        this.firstName = first;
+        this.lastName = last;
+    }
+
+    public Account(){
+    }
+
     @NotNull
     @NotEmpty
     private String accountName;

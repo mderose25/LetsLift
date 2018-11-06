@@ -3,7 +3,6 @@ package depaul.service;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Projections;
-import depaul.interfaces.oracle.IAccount;
 import com.mongodb.*;
 import com.mongodb.client.MongoCollection;
 import depaul.interfaces.nosql.IAccountService;
@@ -60,14 +59,15 @@ public class AccountService implements IAccountService {
 
     @Override
     public boolean loginAccount(String accountName, String enteredPassword) {
-
         //Get account name from Mongo DB and regex for password:
         Bson query = Filters.eq("accountName", accountName);
         Bson projection = Projections.include("password");
         FindIterable<Document> iterator = db.find(query).projection(projection);
         Document result = iterator.first();
-        String toSplit = result.toString();
-        String split[] = toSplit.split("=");
+            if(result == null){
+                return false;
+            }
+        String split[] = result.toString().split("=");
         String mongoPassword[] = split[2].split("}}");
 
         if(mongoPassword[0].equals(enteredPassword)){
@@ -78,6 +78,27 @@ public class AccountService implements IAccountService {
         }
     }
 
+    @Override
+    public Account returnAccountInfo(String accountName){
+        //Filter through and parse data from Mongo.
+        Bson query = Filters.eq("accountName", accountName);
+        FindIterable<Document> iterator = db.find(query);
+        Document result = iterator.first();
+        String split[] = result.toString().split(",");
+        String mongoAcct[] = split[1].split("=");
+        String mongoPword[] = split[2].split("=");
+        String firstName[] = split[3].split("=");
+        String lastName[] = split[4].split("=");
 
+        //Assign variables for account class.
+        String returnAcct = mongoAcct[1];
+        String returnPword = mongoPword[1];
+        String returnFirstName = firstName[1];
+        String returnLastName = lastName[1].substring(0, lastName[1].indexOf("}}"));
+
+        //Create object, return to be added to session.
+        Account toReturn = new Account(returnAcct, returnPword, returnFirstName, returnLastName);
+        return toReturn;
+    }
 }
 

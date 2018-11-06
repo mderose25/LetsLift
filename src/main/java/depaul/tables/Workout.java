@@ -13,14 +13,14 @@ public class Workout implements Serializable, IWorkout {
     public Workout(){
     }
 
-    public Workout(Long accountId, String workoutName, String description, String workoutDate){
-        this.accountId = accountId;
+    public Workout(String accountName, String workoutName, String description, String workoutDate){
+        this.accountName = accountName;
         this.workoutName = workoutName;
         this.description = description;
         this.workoutDate = workoutDate;
     }
 
-    private Long accountId;
+    private String accountName;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,14 +38,12 @@ public class Workout implements Serializable, IWorkout {
             mappedBy = "workout")
     private Collection<Exercise> exercises;
 
-    @Override
-    public Long getAccountId() {
-        return accountId;
+    public String getAccountName() {
+        return accountName;
     }
 
-    @Override
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
     }
 
     @Override

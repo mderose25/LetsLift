@@ -23,11 +23,7 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-nav-demo">
-            <ul class="nav navbar-nav">
-                <li ><a href="/workout">Workouts</a>
-                <li><a href="/exercise">Exercises</a>
 
-            </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/about">About</a>
                 <li><a href="/login">Sign in</a>
@@ -41,7 +37,7 @@
         <h1>CREATE ACCOUNT</h1>
         <div class="formText">
             <form action="#" th:action="@{/login}" th:object="${account}" method="post">
-                E-Mail address:<br>
+                Account Name:<br>
                 <input type="text" class="formInput" name="account-name" size="50"
                         th:field="*{accountName}" required><br>
                 <div class="divider"></div>
