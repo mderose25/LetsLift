@@ -12,14 +12,14 @@ public class Exercise implements Serializable, IExercise {
     public Exercise(){
     }
 
-    public Exercise(Long accountId, String exerciseName, Long weight, Long reps){
-        this.accountId = accountId;
+    public Exercise(String accountName, String exerciseName, Long weight, Long reps){
+        this.accountName = accountName;
         this.exerciseName = exerciseName;
         this.weight = weight;
         this.reps = reps;
     }
 
-    private Long accountId;
+    private String accountName;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,14 +36,12 @@ public class Exercise implements Serializable, IExercise {
     @JoinColumn(name = "workoutID", nullable = false)
     private Workout workout;
 
-    @Override
-    public Long getAccountId() {
-        return accountId;
+    public String getAccountName() {
+        return accountName;
     }
 
-    @Override
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
     }
 
     @Override

@@ -8,6 +8,11 @@ import depaul.repository.WorkoutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Random;
+
 @Service
 public class WorkoutService implements IWorkoutService {
 
@@ -16,25 +21,19 @@ public class WorkoutService implements IWorkoutService {
     @Autowired
     ExerciseRepository exerciseRepository;
 
-    String accountName;
-
-    public String getAccountName() {
-        return accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
-    }
-
     @Override
-    public void saveWorkout(Workout workout) {
-        workout.setAccountName(this.accountName);
+    public void createWorkout(Workout workout) {
         workoutRepository.save(workout);
     }
 
     @Override
     public void deleteWorkout(Workout workout) {
         workoutRepository.delete(workout);
+    }
+
+    @Override
+    public List<Workout> getWorkouts(){
+        return workoutRepository.findAll();
     }
 
     @Override

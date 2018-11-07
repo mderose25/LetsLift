@@ -103,17 +103,11 @@ label {
 	display:inline-block;
 }
 
+.exerciseForm{
+    width: 8px;
+	color: black;
+}
+
 .formInput {
 	color: black;
-}
-
-.exerciseForm {
-	color: black;
-}
-
-.homeText{
-	display: inline-block;
-	width: 50px;
-	border: 1px solid #000;
-	text-align: center;
 }

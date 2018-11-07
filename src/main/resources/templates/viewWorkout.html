@@ -38,13 +38,27 @@
 
 <div class="container">
     <div class="row">
-        <h1>VIEW WORKOUTS</h1>
-
+        <h1>YOUR WORKOUTS</h1>
+        <table class="table table-bordered table-dark">
+            <thead>
+            <tr>
+                <th scope="col">Workout:</th>
+                <th scope="col">Date:</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="workout : ${workouts}">
+                <td th:text="${workout.workoutName}"></td>
+                <td th:text="${workout.workoutDate}"></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 
 <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
+
 
 </html>

@@ -1,6 +1,5 @@
 package depaul.tables;
 
-import depaul.controller.RegistrationController;
 import depaul.interfaces.oracle.IAccount;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;

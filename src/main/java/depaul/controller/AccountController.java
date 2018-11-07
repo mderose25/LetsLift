@@ -1,6 +1,5 @@
 package depaul.controller;
 
-import depaul.interfaces.oracle.IAccount;
 import depaul.service.AccountService;
 import depaul.tables.Account;
 import org.springframework.stereotype.Controller;
@@ -8,8 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
+@SessionAttributes("account")
 public class AccountController {
 
     private AccountService accountService = new AccountService();

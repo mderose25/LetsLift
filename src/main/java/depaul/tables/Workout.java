@@ -1,10 +1,12 @@
 package depaul.tables;
 
+import com.mongodb.lang.Nullable;
 import depaul.interfaces.oracle.IWorkout;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
@@ -36,7 +38,8 @@ public class Workout implements Serializable, IWorkout {
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
             mappedBy = "workout")
-    private Collection<Exercise> exercises;
+    @Nullable
+    private Collection<Exercise> exercises = new ArrayList<Exercise>();
 
     public String getAccountName() {
         return accountName;

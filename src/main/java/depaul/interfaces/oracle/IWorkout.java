@@ -5,7 +5,6 @@ import java.util.Collection;
 
 public interface IWorkout {
 
-
     Long getWorkoutID();
 
     void setWorkoutID(Long workoutID);

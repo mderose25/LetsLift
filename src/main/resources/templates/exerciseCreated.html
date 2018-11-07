@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Let's Lift - Create Exercise</title>
+    <title>Let's Lift - Exercise Created</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
     <link href="https://fonts.googleapis.com/css?family=Fahkwang" rel="stylesheet">
@@ -38,36 +38,7 @@
 
 <div class="container">
     <div class="row">
-        <h1>CREATE EXERCISE</h1>
-        <div class="formText">
-            <form action="#" th:action="@{/exercise/createExercise/exerciseCreated}" th:object="${exercise}" method="post">
-                Exercise name:<br>
-                <input type="text" class="formInput" name="exercise-name" size="50"
-                       th:field="*{exerciseName}"><br>
-                <div class="divider"></div>
-                Weight:<br>
-                <input type="text" class="formInput" name="weight" size="50"
-                       th:field="*{weight}"><br>
-                <div class="divider"></div>
-                Reps:<br>
-                <input type="text" class="formInput" name="reps" size="50"
-                       th:field="*{reps}"><br>
-                <div class="divider"></div>
-                Workout:<br>
-                <select th:field="${workout}">
-                    <option th:each="workout : ${workouts}"
-                            th:value="workout.workoutID"
-                            th:text="workout.workoutName">
-                    </option>
-                </select>
-                <br><br>
-                <input type="submit" class="input-box">
-            </form>
-        </div>
-        <div class="col-lg-12">
-            <div id="content">
-            </div>
-        </div>
+        <h1>EXERCISE CREATED AND ADDED TO WORKOUT</h1>
     </div>
 </div>
 

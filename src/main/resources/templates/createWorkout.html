@@ -40,7 +40,7 @@
     <div class="row">
         <h1>CREATE WORKOUT</h1>
         <div class="formText">
-            <form action="#" th:action="@{/workout/createWorkout}" th:object="${workout}" method="post">
+            <form action="#" th:action="@{/workout/createWorkout/workoutCreated}" th:object="${workout}" method="post">
                 Workout name:<br>
                 <input type="text" class="formInput" name="workout-name" size="50"
                        th:field="*{workoutName}"><br>

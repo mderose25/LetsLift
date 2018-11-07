@@ -4,10 +4,6 @@ import depaul.tables.Workout;
 
 public interface IExercise {
 
-    Long getAccountId();
-
-    void setAccountId(Long accountId);
-
     Long getExerciseID();
 
     void setExerciseID(Long exerciseID);
