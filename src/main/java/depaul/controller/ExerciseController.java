@@ -44,7 +44,7 @@ public class ExerciseController {
                                HttpServletRequest request) {
         Account account = (Account) request.getSession().getAttribute("loggedInUser");
         model.addAttribute("exercise", new Exercise());
-        model.addAttribute("workouts", workoutService.getWorkouts());
+        model.addAttribute("workouts", workoutService.getWorkouts(account));
         return "createExercise";
     }
 

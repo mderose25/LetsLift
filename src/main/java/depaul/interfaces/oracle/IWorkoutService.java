@@ -12,7 +12,7 @@ public interface IWorkoutService {
 
     void deleteWorkout(Workout workout);
 
-    Collection<Workout> getWorkouts();
+    Collection<Workout> getWorkouts(Account account);
 
     void createExercise(Exercise exercise);
 

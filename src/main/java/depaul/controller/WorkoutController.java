@@ -61,8 +61,10 @@ public class WorkoutController {
     }
 
     @GetMapping("/workout/viewWorkout")
-    public String viewWorkouts(Model model){
-        model.addAttribute("workouts", workoutService.getWorkouts());
+    public String viewWorkouts(Model model, HttpServletRequest request){
+        Account account = (Account) request.getSession().getAttribute("loggedInUser");
+        model.addAttribute("workouts", workoutService.getWorls
+                kouts(account));
         return "viewWorkout";
     }
 }
