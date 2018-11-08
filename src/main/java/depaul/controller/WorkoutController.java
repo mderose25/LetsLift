@@ -16,16 +16,14 @@ import org.springframework.web.client.HttpServerErrorException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.Collection;
 
 @Controller
 public class WorkoutController {
 
     @Autowired
-    private WorkoutService workoutService = new WorkoutService();
-
-    @Value("${spring.application.name}")
-    private String appName;
+    private WorkoutService workoutService;
 
     @RequestMapping(value = "/workout/createWorkout")
     public String goToCreateWorkout(){
@@ -54,8 +52,7 @@ public class WorkoutController {
     }
 
     @PostMapping("/workout/createWorkout")
-    public String submitWorkout(Model model,
-                                @ModelAttribute Workout workout,
+    public String submitWorkout(@ModelAttribute Workout workout,
                                 HttpServletRequest request){
         Account account = (Account) request.getSession().getAttribute("loggedInUser");
         workout.setAccountName(account.getAccountName());

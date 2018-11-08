@@ -1,21 +1,22 @@
 package depaul.interfaces.oracle;
 
+import depaul.tables.Account;
 import depaul.tables.Exercise;
 import depaul.tables.Workout;
 
 import java.util.Collection;
+import java.util.List;
 
 public interface IWorkoutService {
-
     void createWorkout(Workout workout);
 
     void deleteWorkout(Workout workout);
 
     Collection<Workout> getWorkouts();
 
-   // void saveWorkout(Workout workout);
+    void createExercise(Exercise exercise);
 
     void deleteExercise(Exercise exercise);
 
-    void saveExercise(Exercise exercise);
+    List<Exercise> getExercises();
 }

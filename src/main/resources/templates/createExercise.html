@@ -54,10 +54,10 @@
                        th:field="*{reps}"><br>
                 <div class="divider"></div>
                 Workout:<br>
-                <select th:field="${workout}">
+                <select th:field="*{workout}" name="workout" class="selectForm">
                     <option th:each="workout : ${workouts}"
-                            th:value="workout.workoutID"
-                            th:text="workout.workoutName">
+                            th:value="${workoutName}"
+                            th:text="${workout.workoutName}">
                     </option>
                 </select>
                 <br><br>

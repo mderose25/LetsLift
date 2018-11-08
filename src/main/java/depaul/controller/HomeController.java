@@ -44,6 +44,7 @@ public class HomeController {
     @RequestMapping(value = "/accountHome")
     public String goToAccountHome(HttpServletRequest request,
                                   Model model){
+
         Account account = (Account) request.getSession().getAttribute("loggedInUser");
         model.addAttribute("name", account.getFirstName().toUpperCase());
         return "accountHome";
