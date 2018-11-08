@@ -6,7 +6,6 @@ import depaul.tables.Account;
 import depaul.tables.Exercise;
 import depaul.tables.Workout;
 import depaul.repository.WorkoutRepository;
-import org.hibernate.jdbc.Work;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +34,11 @@ public class WorkoutService implements IWorkoutService {
     public void deleteWorkout(Workout workout) {
         workoutRepository.delete(workout);
     }
+
+    /*@Override
+    public Workout getWorkout(String workoutID) {
+        return workoutRepository.findById(8);
+    }*/
 
     @Override
     public void deleteExercise(Exercise exercise) {

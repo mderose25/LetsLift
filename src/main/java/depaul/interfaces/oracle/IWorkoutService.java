@@ -19,4 +19,6 @@ public interface IWorkoutService {
     void deleteExercise(Exercise exercise);
 
     List<Exercise> getExercises();
+
+   // Workout getWorkout(String workoutID);
 }

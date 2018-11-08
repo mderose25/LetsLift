@@ -40,13 +40,14 @@
     <div class="row">
         <h1>DELETE WORKOUT</h1>
         Workouts:<br>
-        <select name="workoutList" class="workoutForm">
-            <option value="workout1">Workout 1</option>
-            <option value="workout2">Workout 2</option>
-            <option value="workout3">Workout 3</option>
-            <option value="workout4">Workout 4</option>
-            <option value="workout5">Workout 5</option>
-        </select>
+        <form action="#" th:action="@{/workout/deleteWorkout}" th:object="${workout}" method="post">
+            <select th:field="*{workout}" name="workout" class="selectForm">
+                <option th:each="workout : ${workouts}"
+                        th:value="${workout.workoutID}"
+                        th:text="${workout.workoutName}">
+                </option>
+            </select>
+        </form>
     </div>
 </div>
 

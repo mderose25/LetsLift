@@ -3,6 +3,7 @@ package depaul.controller;
 import depaul.service.WorkoutService;
 import depaul.tables.Account;
 import depaul.tables.Exercise;
+import depaul.tables.Workout;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +36,7 @@ public class ExerciseController {
     }
 
     @RequestMapping(value = "/exercise/deleteExercise")
-    public String goToDeleteWorkout(){
+    public String goToDeleteExercise(){
         return "deleteExercise";
     }
 
@@ -50,8 +51,10 @@ public class ExerciseController {
 
     @PostMapping("/exercise/createExercise")
     public String submitExercise(@ModelAttribute Exercise exercise,
+                                 @ModelAttribute Workout workout,
                                  HttpServletRequest request) {
         Account account = (Account) request.getSession().getAttribute("loggedInUser");
+        exercise.setWorkout(workout);
         exercise.setAccountName(account.getAccountName());
         workoutService.createExercise(exercise);
         return "exerciseCreated";
