@@ -32,7 +32,7 @@ public class WorkoutService implements IWorkoutService {
 
     @Override
     public void deleteWorkout(Workout workout) {
-        workoutRepository.delete(workout);
+        workoutRepository.deleteById(workout.getWorkoutID());
     }
 
     /*@Override

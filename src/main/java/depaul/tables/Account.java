@@ -44,6 +44,8 @@ public class Account implements IAccount {
             fetch = FetchType.EAGER)
     private Collection<Exercise> exercises;
 
+    private Workout workout;
+
     @Override
     public String getAccountName() {
         return accountName;
@@ -91,7 +93,7 @@ public class Account implements IAccount {
     }
 
     public Collection<Workout> getWorkouts() {
-        return workouts;
+        return this.workouts;
     }
 
     public void setWorkouts(Collection<Workout> workouts) {
@@ -112,6 +114,14 @@ public class Account implements IAccount {
 
     public void addExercise(Exercise exercise){
         exercises.add(exercise);
+    }
+
+    public Workout getWorkout(){
+        return this.workout;
+    }
+
+    public void setWorkout(Workout workout){
+        this.workout = workout;
     }
 
 }

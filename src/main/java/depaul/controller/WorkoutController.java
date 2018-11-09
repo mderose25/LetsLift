@@ -62,9 +62,11 @@ public class WorkoutController {
     }
 
     @GetMapping("/workout/deleteWorkout")
-    public String deleteWorkoutForm(Model model, HttpServletRequest request) {
+    public String deleteWorkoutForm(Model model,
+                                    HttpServletRequest request) {
         Account account = (Account) request.getSession().getAttribute("loggedInUser");
-        model.addAttribute("workout", workoutService.getWorkouts(account));
+        model.addAttribute("workout", new Workout());
+        model.addAttribute("workouts", workoutService.getWorkouts(account));
         return "deleteWorkout";
     }
 

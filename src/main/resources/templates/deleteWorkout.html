@@ -41,12 +41,14 @@
         <h1>DELETE WORKOUT</h1>
         Workouts:<br>
         <form action="#" th:action="@{/workout/deleteWorkout}" th:object="${workout}" method="post">
-            <select th:field="*{workout}" name="workout" class="selectForm">
+            <select th:field="*{workoutID}" name="workoutID" class="selectForm">
                 <option th:each="workout : ${workouts}"
                         th:value="${workout.workoutID}"
                         th:text="${workout.workoutName}">
                 </option>
             </select>
+            <br><br>
+            <input type="submit" class="input-box">
         </form>
     </div>
 </div>
