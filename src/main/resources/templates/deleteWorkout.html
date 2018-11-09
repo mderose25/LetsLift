@@ -42,6 +42,7 @@
         Workouts:<br>
         <form action="#" th:action="@{/workout/deleteWorkout}" th:object="${workout}" method="post">
             <select th:field="*{workoutID}" name="workoutID" class="selectForm">
+                <option value="-----">------------</option>
                 <option th:each="workout : ${workouts}"
                         th:value="${workout.workoutID}"
                         th:text="${workout.workoutName}">

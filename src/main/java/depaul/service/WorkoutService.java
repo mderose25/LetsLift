@@ -35,11 +35,6 @@ public class WorkoutService implements IWorkoutService {
         workoutRepository.deleteById(workout.getWorkoutID());
     }
 
-    /*@Override
-    public Workout getWorkout(String workoutID) {
-        return workoutRepository.findById(8);
-    }*/
-
     @Override
     public void deleteExercise(Exercise exercise) {
         exerciseRepository.delete(exercise);
@@ -50,10 +45,10 @@ public class WorkoutService implements IWorkoutService {
         List<Workout> allWorkouts = workoutRepository.findAll();
         List<Workout> toReturn = new ArrayList<Workout>();
 
-        for(int i = 0; i < allWorkouts.size(); i++){
+        for (int i = 0; i < allWorkouts.size(); i++) {
             Workout toCheck = allWorkouts.get(i);
 
-            if(toCheck.getAccountName().equals(account.getAccountName())){
+            if (toCheck.getAccountName().equals(account.getAccountName())) {
                 toReturn.add(toCheck);
             }
         }
@@ -61,8 +56,18 @@ public class WorkoutService implements IWorkoutService {
     }
 
     @Override
-    public List<Exercise> getExercises(){
-        return exerciseRepository.findAll();
+    public List<Exercise> getExercises(Account account) {
+        List<Exercise> allExercises = exerciseRepository.findAll();
+        List<Exercise> toReturn = new ArrayList<Exercise>();
+
+        for (int i = 0; i < allExercises.size(); i++) {
+            Exercise toCheck = allExercises.get(i);
+
+            if (toCheck.getAccountName().equals(account.getAccountName())) {
+                toReturn.add(toCheck);
+            }
+        }
+        return toReturn;
     }
 }
 

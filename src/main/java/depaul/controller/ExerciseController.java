@@ -61,8 +61,25 @@ public class ExerciseController {
     }
 
     @GetMapping("/exercise/viewExercise")
-    public String viewExercises(Model model){
-        model.addAttribute("exercises", workoutService.getExercises());
+    public String viewExercises(Model model,
+                                HttpServletRequest request){
+        Account account = (Account) request.getSession().getAttribute("loggedInUser");
+        model.addAttribute("exercises", workoutService.getExercises(account));
         return "viewExercise";
+    }
+
+    @GetMapping("/exercise/deleteExercise")
+    public String deleteWorkoutForm(Model model,
+                                    HttpServletRequest request) {
+        Account account = (Account) request.getSession().getAttribute("loggedInUser");
+        model.addAttribute("exercise", new Exercise());
+        model.addAttribute("workouts", workoutService.getExercises(account));
+        return "deleteExercise";
+    }
+
+    @PostMapping("/exercise/deleteExercise")
+    public String deleteWorkout(@ModelAttribute Exercise exercise){
+        workoutService.deleteExercise(exercise);
+        return "exerciseDeleted";
     }
 }
