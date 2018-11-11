@@ -69,16 +69,16 @@ public class ExerciseController {
     }
 
     @GetMapping("/exercise/deleteExercise")
-    public String deleteWorkoutForm(Model model,
+    public String deleteExerciseForm(Model model,
                                     HttpServletRequest request) {
         Account account = (Account) request.getSession().getAttribute("loggedInUser");
         model.addAttribute("exercise", new Exercise());
-        model.addAttribute("workouts", workoutService.getExercises(account));
+        model.addAttribute("exercises", workoutService.getExercises(account));
         return "deleteExercise";
     }
 
     @PostMapping("/exercise/deleteExercise")
-    public String deleteWorkout(@ModelAttribute Exercise exercise){
+    public String deleteExercise(@ModelAttribute Exercise exercise){
         workoutService.deleteExercise(exercise);
         return "exerciseDeleted";
     }

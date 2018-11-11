@@ -19,18 +19,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="accountHome" class="navbar-brand">Let's Lift</a>
+            <a href="/accountHome" class="navbar-brand">Let's Lift</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-nav-demo">
             <ul class="nav navbar-nav">
-                <li ><a href="http://www.google.com">Workouts</a>
-                <li><a href="http://www.google.com">Exercises</a>
+                <li ><a href="/workout">Workouts</a>
+                <li><a href="/exercise">Exercises</a>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://www.google.com">About</a>
-                <li><a href="http://www.google.com">Sign in</a>
+                <li><a href="/about">About</a>
+                <li><a href="/login">Log out</a>
             </ul>
         </div>
     </div>
@@ -38,18 +38,21 @@
 
 <div class="container">
     <div class="row">
-        <h1>DELETE EXERCISE</h1>
+        <h1>DELETE WORKOUT</h1>
         Workouts:<br>
-        <select name="workoutList" class="workoutForm">
-            <option value="workout1">Workout 1</option>
-            <option value="workout2">Workout 2</option>
-            <option value="workout3">Workout 3</option>
-            <option value="workout4">Workout 4</option>
-            <option value="workout5">Workout 5</option>
-        </select>
+        <form action="#" th:action="@{/exercise/deleteExercise}" th:object="${exercise}" method="post">
+            <select th:field="*{exerciseID}" name="exerciseID" class="selectForm">
+                <option value="-----">------------</option>
+                <option th:each="exercise : ${exercises}"
+                        th:value="${exercise.exerciseID}"
+                        th:text="${exercise.exerciseName}">
+                </option>
+            </select>
+            <br><br>
+            <input type="submit" class="input-box">
+        </form>
     </div>
 </div>
-
 
 <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
